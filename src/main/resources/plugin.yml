@@ -1,0 +1,7 @@
+name: EssentialsPro
+version: 1.0
+main: de.marvnet.minecraft.essentialspro.main.EssentialsPro
+commands:
+  gamemode:
+    description: Change the gamemode.
+    aliases: ["gm", "gmode", "gamem"]
