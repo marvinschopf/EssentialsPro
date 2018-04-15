@@ -58,6 +58,7 @@ public class EssentialsPro extends JavaPlugin {
         registerEvents();
         registerCommands();
         configManager = new ConfigManager();
+        configManager.init();
         Bukkit.getConsoleSender().sendMessage(getConfigManager().getMessage("Plugin_Enabled"));
         super.onEnable();
     }

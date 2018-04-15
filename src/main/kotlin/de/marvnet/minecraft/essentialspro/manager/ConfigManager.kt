@@ -3,18 +3,29 @@ package de.marvnet.minecraft.essentialspro.manager
 import de.marvnet.minecraft.essentialspro.main.EssentialsPro
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
+import java.lang.Exception
 
 class ConfigManager {
 
     var configFile: File? = null
-    var config: YamlConfiguration = YamlConfiguration()
+    var config: YamlConfiguration? = null
 
     fun save() {
-        config.save(configFile)
+        config!!.save(configFile)
     }
 
-    fun get(key: String): Any? {
-        return config.get(key)
+    fun get(key: String): Any {
+        var ret = "";
+        try {
+            ret = config!!.get(key) as String
+        } catch(e: Exception) {
+            return "§cCould not load message from config file. Please look at the Server's console for more details."
+        }
+        if(ret != null) {
+            return config!!.get(key)
+        } else {
+            return "§cCould not load message from config file. Please look at the Server's console for more details."
+        }
     }
 
     fun getMessage(messageID: String): String {
@@ -22,7 +33,7 @@ class ConfigManager {
     }
 
     fun set(key: String, value: Any, autosave: Boolean = true) {
-        config.set(key, value)
+        config!!.set(key, value)
         if(autosave) {
             save()
         }
