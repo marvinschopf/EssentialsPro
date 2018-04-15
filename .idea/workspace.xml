@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fd2e4de-ba10-4bc1-a7fd-399b18b61535" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/util/GamemodeUtil.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/main/EssentialsPro.java" afterPath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/main/EssentialsPro.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,11 +54,9 @@
       <file leaf-file-name="GamemodeCommand.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-              <folding>
-                <element signature="e#53#373#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="92">
+              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -333,12 +327,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523776990622</updated>
       <workItem from="1523776995443" duration="3754000" />
-      <workItem from="1523790166283" duration="1060000" />
+      <workItem from="1523790166283" duration="1154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4814000" />
+    <option name="totallyTimeSpent" value="4908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="92" y="87" width="1400" height="780" extended-state="0" />
@@ -419,9 +413,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#53#373#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -503,11 +495,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding>
-            <element signature="e#53#373#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="92">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

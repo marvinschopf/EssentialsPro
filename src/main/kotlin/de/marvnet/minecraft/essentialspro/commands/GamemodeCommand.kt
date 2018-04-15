@@ -3,7 +3,6 @@ package de.marvnet.minecraft.essentialspro.commands
 import de.marvnet.minecraft.essentialspro.main.EssentialsPro
 import de.marvnet.minecraft.essentialspro.util.GamemodeUtil
 import org.bukkit.Bukkit
-import org.bukkit.GameMode
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
