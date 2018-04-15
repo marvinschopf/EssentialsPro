@@ -1,5 +1,6 @@
 package de.marvnet.minecraft.essentialspro.main;
 
+import de.marvnet.minecraft.essentialspro.commands.BroadcastCommand;
 import de.marvnet.minecraft.essentialspro.commands.FlyCommand;
 import de.marvnet.minecraft.essentialspro.commands.GamemodeCommand;
 import org.bukkit.Bukkit;
@@ -66,5 +67,6 @@ public class EssentialsPro extends JavaPlugin {
     public void registerCommands() {
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("fly").setExecutor(new FlyCommand());
+        getCommand("broadcast").setExecutor(new BroadcastCommand());
     }
 }

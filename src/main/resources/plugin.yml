@@ -8,3 +8,6 @@ commands:
   fly:
     description: Toggle fly mode.
     aliases: ["toggleflymode", "flymode", "fmode", "flym", "modefly", "mfly" ,"modef"]
+  broadcast:
+    description: Broadcast a message on the server
+    aliases: ["bc", "bcast", "broadc", "castb", "castbroad", "cbroad"]
