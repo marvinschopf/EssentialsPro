@@ -4,11 +4,11 @@ import org.bukkit.entity.Player
 
 class FlyUtil {
     fun setFlying(p: Player, state: Boolean) {
-        p.isFlying = state
+        p.allowFlight = state
     }
 
     fun toggleFlying(p: Player) {
-        if(p.isFlying) {
+        if(p.allowFlight) {
             setFlying(p, false)
             p.sendMessage("§6Flying mode has been disabled.")
         } else {
