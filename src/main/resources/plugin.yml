@@ -5,3 +5,6 @@ commands:
   gamemode:
     description: Change the gamemode.
     aliases: ["gm", "gmode", "gamem"]
+  fly:
+    description: Toggle fly mode.
+    aliases: ["toggleflymode", "flymode", "fmode", "flym", "modefly", "mfly" ,"modef"]
