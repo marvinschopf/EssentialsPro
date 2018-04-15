@@ -25,7 +25,7 @@ class FlyCommand: CommandExecutor {
                 val p: Player = Bukkit.getServer().getPlayer(args[0])
                 if(p != null) {
                     FlyUtil().toggleFlying(p)
-                    sender.sendMessage("§6The fly-mode for " + p.displayName + " has been toggled!")
+                    sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Flying_Other_Toggled").replace("%name%", p.displayName))
                 } else {
                     sender.sendMessage(EssentialsPro.getUnknownPlayer())
                 }

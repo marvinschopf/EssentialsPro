@@ -1,5 +1,6 @@
 package de.marvnet.minecraft.essentialspro.util
 
+import de.marvnet.minecraft.essentialspro.main.EssentialsPro
 import org.bukkit.entity.Player
 
 class FlyUtil {
@@ -10,10 +11,10 @@ class FlyUtil {
     fun toggleFlying(p: Player) {
         if(p.allowFlight) {
             setFlying(p, false)
-            p.sendMessage("§6Flying mode has been disabled.")
+            p.sendMessage(EssentialsPro.getConfigManager().getMessage("Flying_Disabled"))
         } else {
             setFlying(p, true)
-            p.sendMessage("§6Flying mode has been enabled.")
+            p.sendMessage(EssentialsPro.getConfigManager().getMessage("Flying_Enabled"))
         }
     }
 }

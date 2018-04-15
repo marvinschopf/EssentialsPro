@@ -3,6 +3,7 @@ package de.marvnet.minecraft.essentialspro.main;
 import de.marvnet.minecraft.essentialspro.commands.BroadcastCommand;
 import de.marvnet.minecraft.essentialspro.commands.FlyCommand;
 import de.marvnet.minecraft.essentialspro.commands.GamemodeCommand;
+import de.marvnet.minecraft.essentialspro.manager.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,8 @@ public class EssentialsPro extends JavaPlugin {
     private static String onlyPlayer = "§cOnly players can execute this command!";
     private static String unknownPlayer = "§cYou specified an unknown player!";
     private static String unknownArguments = "§cUnknown number of arguments!";
+
+    private static ConfigManager configManager;
 
     private static boolean async = true;
 
@@ -45,18 +48,23 @@ public class EssentialsPro extends JavaPlugin {
         return prefix;
     }
 
+    public static ConfigManager getConfigManager() {
+        return configManager;
+    }
+
     @Override
     public void onEnable() {
         plugin = this;
         registerEvents();
         registerCommands();
-        Bukkit.getConsoleSender().sendMessage(prefix + " §aThe plugin has been loaded successfully!");
+        configManager = new ConfigManager();
+        Bukkit.getConsoleSender().sendMessage(getConfigManager().getMessage("Plugin_Enabled"));
         super.onEnable();
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getConsoleSender().sendMessage(prefix + " §cThe plugin has been disabled successfully!");
+        Bukkit.getConsoleSender().sendMessage(getConfigManager().getMessage("Plugin_Disabled"));
         super.onDisable();
     }
 

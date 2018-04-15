@@ -24,7 +24,7 @@ class GamemodeCommand: CommandExecutor {
                         val p: Player = Bukkit.getServer().getPlayer(args[0])
                         if(p != null) {
                             GamemodeUtil().setGamemode(args[1], p)
-                            sender.sendMessage("§6The gamemode of " + p.displayName + " has been changed to " + args[1])
+                            sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Gamemode_Others").replace("%name%", p.displayName).replace("%gamemode%", args[1]))
                         } else {
                             sender.sendMessage(EssentialsPro.getUnknownPlayer())
                         }
