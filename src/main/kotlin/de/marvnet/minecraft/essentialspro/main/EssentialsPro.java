@@ -41,6 +41,8 @@ public class EssentialsPro extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        registerEvents();
+        registerCommands();
         Bukkit.getConsoleSender().sendMessage(prefix + " §aThe plugin has been loaded successfully!");
         super.onEnable();
     }
