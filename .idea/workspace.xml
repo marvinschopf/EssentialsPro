@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fd2e4de-ba10-4bc1-a7fd-399b18b61535" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/de/marvnet/minecraft/essentialspro/commands/GamemodeCommand.kt" />
-    </list>
+    <list default="true" id="9fd2e4de-ba10-4bc1-a7fd-399b18b61535" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -329,12 +327,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523776990622</updated>
       <workItem from="1523776995443" duration="3754000" />
-      <workItem from="1523790166283" duration="1497000" />
+      <workItem from="1523790166283" duration="1588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5251000" />
+    <option name="totallyTimeSpent" value="5342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="92" y="87" width="1400" height="780" extended-state="0" />
