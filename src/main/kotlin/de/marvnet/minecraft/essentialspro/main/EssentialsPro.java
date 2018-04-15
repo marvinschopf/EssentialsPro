@@ -11,10 +11,10 @@ public class EssentialsPro extends JavaPlugin {
 
     private static EssentialsPro plugin = null;
     private static String prefix = "§7[§6EssentialsPro§7]§f";
-    private static String noPermission  = "§cYou don't have the permission to execute this command!";
-    private static String onlyPlayer = "§cOnly players can execute this command!";
-    private static String unknownPlayer = "§cYou specified an unknown player!";
-    private static String unknownArguments = "§cUnknown number of arguments!";
+    private static String noPermission  = "No_Permission";
+    private static String onlyPlayer = "Only_Player";
+    private static String unknownPlayer = "Unknown_Player";
+    private static String unknownArguments = "Unknown_Arguments";
 
     private static ConfigManager configManager;
 
@@ -59,6 +59,10 @@ public class EssentialsPro extends JavaPlugin {
         registerCommands();
         configManager = new ConfigManager();
         configManager.init();
+        noPermission = configManager.getMessage("Error_No_Permission");
+        onlyPlayer = configManager.getMessage("Error_Only_Player");
+        unknownPlayer = configManager.getMessage("Error_Unknown_Player");
+        unknownArguments = configManager.getMessage("Error_Unknown_Arguments");
         Bukkit.getConsoleSender().sendMessage(getConfigManager().getMessage("Plugin_Enabled"));
         super.onEnable();
     }
