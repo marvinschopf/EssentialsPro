@@ -22,10 +22,14 @@ class FlyCommand: CommandExecutor {
             }
         } else if(args.isNotEmpty() && args.size == 1) {
             if(sender!!.hasPermission("essentials.fly.others")) {
-                val p: Player = Bukkit.getServer().getPlayer(args[0])
+                val p: Player? = Bukkit.getServer().getPlayer(args[0])
                 if(p != null) {
-                    FlyUtil().toggleFlying(p)
-                    sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Flying_Other_Toggled").replace("%name%", p.displayName))
+                    if(p.isOnline) {
+                        FlyUtil().toggleFlying(p)
+                        sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Flying_Other_Toggled").replace("%name%", p.displayName))
+                    } else {
+                        sender.sendMessage(EssentialsPro.getUnknownPlayer())
+                    }
                 } else {
                     sender.sendMessage(EssentialsPro.getUnknownPlayer())
                 }
