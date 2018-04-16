@@ -1,6 +1,8 @@
 package de.marvnet.minecraft.essentialspro.manager
 
 import de.marvnet.minecraft.essentialspro.main.EssentialsPro
+import org.bukkit.Bukkit
+import org.bukkit.Location
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 import java.lang.Exception
@@ -28,8 +30,44 @@ class ConfigManager {
         }
     }
 
+    fun getString(key: String): String {
+        return get(key) as String
+    }
+
+    fun getDouble(key: String): Double {
+        return get(key) as Double
+    }
+
+    fun getFloat(key: String): Float {
+        return get(key) as Float
+    }
+
+    fun getBoolean(key: String): Boolean {
+        return get(key) as Boolean
+    }
+
     fun getMessage(messageID: String): String {
         return (get("messages." + messageID.replace(" ", "_")) as String).replace("%prefix%", EssentialsPro.getPrefix())
+    }
+
+    fun setLocation(name: String, location: Location, category: String = "warps") {
+        set("$category.$name.X", location.x, false)
+        set("$category.$name.Y", location.y, false)
+        set("$category.$name.Z", location.z, false)
+        set("$category.$name.World", location.world.name, false)
+        set("$category.$name.Pitch", location.pitch, false)
+        set("$category.$name.Yaw", location.yaw, false)
+        save()
+    }
+
+    fun getLocation(name: String, category: String = "warps"): Location {
+        val loc = Location(Bukkit.getWorld(getString("$category.$name.World")),
+                getDouble("$category.$name.X"),
+                getDouble("$category.$name.Y"),
+                getDouble("$category.$name.Z"))
+        loc.pitch = getFloat("$category.$name.Pitch")
+        loc.yaw = getFloat("$category.$name.Yaw")
+        return loc
     }
 
     fun set(key: String, value: Any, autosave: Boolean = true) {
@@ -68,6 +106,9 @@ class ConfigManager {
             set("messages.Error_Only_Player", "§cOnly players can execute this command!", false)
             set("messages.Error_Unknown_Player", "§cYou specified an unknown player!", false)
             set("messages.Error_Unknown_Arguments", "§cUnknown number of arguments!", false)
+            set("messages.Unknown_Warp", "§cUnknown warp point!", false)
+            set("messages.Warped", "§6You have been warped to %point%.", false)
+            set("messages.Warped_Other", "§6%name% has been warped to %point%.", false)
 
             save()
         }

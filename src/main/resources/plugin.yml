@@ -11,3 +11,6 @@ commands:
   broadcast:
     description: Broadcast a message on the server
     aliases: ["bc", "bcast", "broadc", "castb", "castbroad", "cbroad"]
+  warp:
+    description: Warp to a specific location
+    aliases: ["tploc", "teleportloc", "teleportl", "tpl"]
