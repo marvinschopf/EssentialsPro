@@ -13,7 +13,12 @@ class WarpCommand: CommandExecutor {
         if(sender!!.hasPermission("essentials.warp")) {
             if(args!!.size == 1) {
                 if(sender is Player) {
-                    val loc: Location? = EssentialsPro.getConfigManager().getLocation(args[0])
+                    var loc: Location? = null
+                    try {
+                        loc = EssentialsPro.getConfigManager().getLocation(args[0])
+                    } catch(e: NumberFormatException) {
+                        sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Error_Number_Parsing"))
+                    }
                     if(loc != null) {
                         (sender as Player).teleport(loc)
                         sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped").replace("%point%", args[0]))
@@ -28,7 +33,12 @@ class WarpCommand: CommandExecutor {
                     val p: Player? = Bukkit.getServer().getPlayer(args[0])
                     if(p != null) {
                         if(p.isOnline) {
-                            val loc: Location? = EssentialsPro.getConfigManager().getLocation(args[1])
+                            var loc: Location? = null
+                            try {
+                                loc = EssentialsPro.getConfigManager().getLocation(args[1])
+                            } catch(e: NumberFormatException) {
+                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Error_Number_Parsing"))
+                            }
                             if(loc != null) {
                                 p.teleport(loc)
                                 sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))

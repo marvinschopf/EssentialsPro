@@ -35,11 +35,11 @@ class ConfigManager {
     }
 
     fun getDouble(key: String): Double {
-        return get(key) as Double
+        return (get(key) as String).toDouble()
     }
 
     fun getFloat(key: String): Float {
-        return get(key) as Float
+        return (get(key) as String).toFloat()
     }
 
     fun getBoolean(key: String): Boolean {
@@ -106,6 +106,7 @@ class ConfigManager {
             set("messages.Error_Only_Player", "§cOnly players can execute this command!", false)
             set("messages.Error_Unknown_Player", "§cYou specified an unknown player!", false)
             set("messages.Error_Unknown_Arguments", "§cUnknown number of arguments!", false)
+            set("messages.Error_Number_Parsing", "§4An error occured while parsing the coordinates. Please look at your server's console and report the issue on the GitHub issue page.", false)
             set("messages.Unknown_Warp", "§cUnknown warp point!", false)
             set("messages.Warped", "§6You have been warped to %point%.", false)
             set("messages.Warped_Other", "§6%name% has been warped to %point%.", false)
