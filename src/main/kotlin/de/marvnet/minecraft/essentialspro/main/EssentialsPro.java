@@ -57,6 +57,7 @@ public class EssentialsPro extends JavaPlugin {
         registerCommands();
         configManager = new ConfigManager();
         configManager.init();
+        async = configManager.getBoolean("async");
         noPermission = configManager.getMessage("Error_No_Permission");
         onlyPlayer = configManager.getMessage("Error_Only_Player");
         unknownPlayer = configManager.getMessage("Error_Unknown_Player");

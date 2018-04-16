@@ -11,6 +11,11 @@ class SetwarpCommand: CommandExecutor {
         if(sender!!.hasPermission("essentials.setwarp")) {
             if(sender is Player) {
                 if(args!!.size == 1) {
+                    if(EssentialsPro.getConfigManager().getString("warplist") == "None") {
+                        EssentialsPro.getConfigManager().set("warplist", args[0], true)
+                    } else {
+                        EssentialsPro.getConfigManager().set("warplist", EssentialsPro.getConfigManager().getString("warplist") + ", " + args[0], true)
+                    }
                     EssentialsPro.getConfigManager().setLocation(args[0], (sender as Player).location)
                     sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warp_Set").replace("%point%", args[0]))
                 } else {

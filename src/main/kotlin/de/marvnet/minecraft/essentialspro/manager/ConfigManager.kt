@@ -35,11 +35,19 @@ class ConfigManager {
     }
 
     fun getDouble(key: String): Double {
-        return (get(key) as String).toDouble()
+        try {
+            return (get(key) as String).toDouble()
+        } catch(e: Exception) {
+            return 0.00
+        }
     }
 
     fun getFloat(key: String): Float {
-        return (get(key) as String).toFloat()
+        try {
+            return (get(key) as String).toFloat()
+        } catch(e: Exception) {
+            return 0.00F
+        }
     }
 
     fun getBoolean(key: String): Boolean {
@@ -51,22 +59,13 @@ class ConfigManager {
     }
 
     fun setLocation(name: String, location: Location, category: String = "warps") {
-        set("$category.$name.X", location.x, false)
-        set("$category.$name.Y", location.y, false)
-        set("$category.$name.Z", location.z, false)
-        set("$category.$name.World", location.world.name, false)
-        set("$category.$name.Pitch", location.pitch, false)
-        set("$category.$name.Yaw", location.yaw, false)
+        set("$category.$name", location, false)
         save()
     }
 
+
     fun getLocation(name: String, category: String = "warps"): Location {
-        val loc = Location(Bukkit.getWorld(getString("$category.$name.World")),
-                getDouble("$category.$name.X"),
-                getDouble("$category.$name.Y"),
-                getDouble("$category.$name.Z"))
-        loc.pitch = getFloat("$category.$name.Pitch")
-        loc.yaw = getFloat("$category.$name.Yaw")
+        val loc = config!!.get("$category.$name") as Location
         return loc
     }
 
@@ -111,6 +110,9 @@ class ConfigManager {
             set("messages.Warped", "§6You have been warped to %point%.", false)
             set("messages.Warped_Other", "§6%name% has been warped to %point%.", false)
             set("messages.Warp_Set", "§6The warp point %point% has been set.", false)
+            set("messages.Warp_List", "§6Warps: %warps%", false)
+            set("warplist", "None", false)
+            set("async", true, false)
 
             save()
         }

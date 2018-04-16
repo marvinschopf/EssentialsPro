@@ -29,17 +29,13 @@ class WarpCommand: CommandExecutor {
                     sender.sendMessage(EssentialsPro.getOnlyPlayer())
                 }
             } else if(args.size == 2) {
-                if(sender.hasPermission("essentials.warp.others")) {
+                if (sender.hasPermission("essentials.warp.others")) {
                     val p: Player? = Bukkit.getServer().getPlayer(args[0])
-                    if(p != null) {
-                        if(p.isOnline) {
+                    if (p != null) {
+                        if (p.isOnline) {
                             var loc: Location? = null
-                            try {
-                                loc = EssentialsPro.getConfigManager().getLocation(args[1])
-                            } catch(e: NumberFormatException) {
-
-                            }
-                            if(loc != null) {
+                            loc = EssentialsPro.getConfigManager().getLocation(args[1])
+                            if (loc != null) {
                                 p.teleport(loc)
                                 sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))
                             } else {
@@ -51,6 +47,12 @@ class WarpCommand: CommandExecutor {
                     } else {
                         sender.sendMessage(EssentialsPro.getUnknownPlayer())
                     }
+                } else {
+                    sender.sendMessage(EssentialsPro.getNoPermission())
+                }
+            } else if(args.size == 0) {
+                if(sender.hasPermission("essentials.warp.list")) {
+                    sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warp_List").replace("%warps%", EssentialsPro.getConfigManager().getString("warplist")))
                 } else {
                     sender.sendMessage(EssentialsPro.getNoPermission())
                 }
