@@ -107,7 +107,7 @@ class ConfigManager {
             set("messages.Gamemode_Adventure", "§6Your gamemode has been set to Adventure.", false)
             set("messages.Gamemode_Spectator", "§6Your gamemode has been set to Spectator.", false)
             set("messages.Gamemode_Others", "§6The gamemode for %name% has been set to %gamemode%.", false)
-            set("messages.Error_No_Permission", "§cYou don't have the permission to execute this command!", false)
+            set("messages.Error_No_Permission", "§cMissing permission: %node%", false)
             set("messages.Error_Only_Player", "§cOnly players can execute this command!", false)
             set("messages.Error_Unknown_Player", "§cYou specified an unknown player!", false)
             set("messages.Error_Unknown_Arguments", "§cUnknown number of arguments!", false)

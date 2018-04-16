@@ -83,4 +83,8 @@ public class EssentialsPro extends JavaPlugin {
         getCommand("warp").setExecutor(new WarpCommand());
         getCommand("setwarp").setExecutor(new SetwarpCommand());
     }
+
+    public static String noPermission(String node) {
+        return noPermission.replace("%node%", node);
+    }
 }

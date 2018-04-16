@@ -70,7 +70,7 @@ class WarpCommand: CommandExecutor {
                         sender.sendMessage(EssentialsPro.getUnknownPlayer())
                     }
                 } else {
-                    sender.sendMessage(EssentialsPro.getNoPermission())
+                    sender.sendMessage(EssentialsPro.noPermission("essentials.warp.others"))
                 }
             } else if(args.size == 0) {
                 if(sender.hasPermission("essentials.warp.list")) {
