@@ -2,6 +2,7 @@ package de.marvnet.minecraft.essentialspro.commands
 
 import de.marvnet.minecraft.essentialspro.main.EssentialsPro
 import org.bukkit.Bukkit
+import org.bukkit.Location
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -12,7 +13,7 @@ class WarpCommand: CommandExecutor {
         if(sender!!.hasPermission("essentials.warp")) {
             if(args!!.size == 1) {
                 if(sender is Player) {
-                    val loc = EssentialsPro.getConfigManager().getLocation(args[0])
+                    val loc: Location? = EssentialsPro.getConfigManager().getLocation(args[0])
                     if(loc != null) {
                         (sender as Player).teleport(loc)
                         sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped").replace("%point%", args[0]))
@@ -27,7 +28,7 @@ class WarpCommand: CommandExecutor {
                     val p: Player? = Bukkit.getServer().getPlayer(args[0])
                     if(p != null) {
                         if(p.isOnline) {
-                            val loc = EssentialsPro.getConfigManager().getLocation(args[1])
+                            val loc: Location? = EssentialsPro.getConfigManager().getLocation(args[1])
                             if(loc != null) {
                                 p.teleport(loc)
                                 sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))

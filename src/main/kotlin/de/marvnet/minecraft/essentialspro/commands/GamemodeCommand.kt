@@ -21,10 +21,14 @@ class GamemodeCommand: CommandExecutor {
                     }
                 } else if(args.size == 2) {
                     if(sender.hasPermission("essentials.gamemode.others")) {
-                        val p: Player = Bukkit.getServer().getPlayer(args[0])
+                        val p: Player? = Bukkit.getServer().getPlayer(args[0])
                         if(p != null) {
-                            GamemodeUtil().setGamemode(args[1], p)
-                            sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Gamemode_Others").replace("%name%", p.displayName).replace("%gamemode%", args[1]))
+                            if(p.isOnline) {
+                                GamemodeUtil().setGamemode(args[1], p)
+                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Gamemode_Others").replace("%name%", p.displayName).replace("%gamemode%", args[1]))
+                            } else {
+                                sender.sendMessage(EssentialsPro.getUnknownPlayer())
+                            }
                         } else {
                             sender.sendMessage(EssentialsPro.getUnknownPlayer())
                         }
