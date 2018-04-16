@@ -24,14 +24,18 @@ class WarpCommand: CommandExecutor {
                 }
             } else if(args.size == 2) {
                 if(sender.hasPermission("essentials.warp.others")) {
-                    val p: Player = Bukkit.getServer().getPlayer(args[0])
-                    if(p.isOnline && p != null) {
-                        val loc = EssentialsPro.getConfigManager().getLocation(args[1])
-                        if(loc != null) {
-                            p.teleport(loc)
-                            sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))
+                    val p: Player? = Bukkit.getServer().getPlayer(args[0])
+                    if(p != null) {
+                        if(p.isOnline) {
+                            val loc = EssentialsPro.getConfigManager().getLocation(args[1])
+                            if(loc != null) {
+                                p.teleport(loc)
+                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))
+                            } else {
+                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                            }
                         } else {
-                            sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                            sender.sendMessage(EssentialsPro.getUnknownPlayer())
                         }
                     } else {
                         sender.sendMessage(EssentialsPro.getUnknownPlayer())
