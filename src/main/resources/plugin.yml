@@ -14,3 +14,6 @@ commands:
   warp:
     description: Warp to a specific location
     aliases: ["tploc", "teleportloc", "teleportl", "tpl"]
+  setwarp:
+    description: Set warp location
+    aliases: ["swarp", "setw", "warpset", "warps", "wset"]

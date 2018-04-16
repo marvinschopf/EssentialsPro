@@ -1,9 +1,6 @@
 package de.marvnet.minecraft.essentialspro.main;
 
-import de.marvnet.minecraft.essentialspro.commands.BroadcastCommand;
-import de.marvnet.minecraft.essentialspro.commands.FlyCommand;
-import de.marvnet.minecraft.essentialspro.commands.GamemodeCommand;
-import de.marvnet.minecraft.essentialspro.commands.WarpCommand;
+import de.marvnet.minecraft.essentialspro.commands.*;
 import de.marvnet.minecraft.essentialspro.manager.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -83,5 +80,6 @@ public class EssentialsPro extends JavaPlugin {
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("broadcast").setExecutor(new BroadcastCommand());
         getCommand("warp").setExecutor(new WarpCommand());
+        getCommand("setwarp").setExecutor(new SetwarpCommand());
     }
 }

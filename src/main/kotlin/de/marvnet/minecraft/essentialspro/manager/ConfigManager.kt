@@ -110,6 +110,7 @@ class ConfigManager {
             set("messages.Unknown_Warp", "§cUnknown warp point!", false)
             set("messages.Warped", "§6You have been warped to %point%.", false)
             set("messages.Warped_Other", "§6%name% has been warped to %point%.", false)
+            set("messages.Warp_Set", "§6The warp point %point% has been set.", false)
 
             save()
         }

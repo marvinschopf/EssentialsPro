@@ -37,7 +37,7 @@ class WarpCommand: CommandExecutor {
                             try {
                                 loc = EssentialsPro.getConfigManager().getLocation(args[1])
                             } catch(e: NumberFormatException) {
-                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Error_Number_Parsing"))
+
                             }
                             if(loc != null) {
                                 p.teleport(loc)
