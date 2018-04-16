@@ -19,11 +19,22 @@ class WarpCommand: CommandExecutor {
                     } catch(e: NumberFormatException) {
                         sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Error_Number_Parsing"))
                     }
-                    if(loc != null) {
-                        (sender as Player).teleport(loc)
-                        sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped").replace("%point%", args[0]))
+                    if(EssentialsPro.getAsync()) {
+                        Bukkit.getScheduler().runTaskAsynchronously(EssentialsPro.getPlugin(), {
+                            if(loc != null) {
+                                (sender as Player).teleport(loc)
+                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped").replace("%point%", args[0]))
+                            } else {
+                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                            }
+                        })
                     } else {
-                        sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                        if(loc != null) {
+                            (sender as Player).teleport(loc)
+                            sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped").replace("%point%", args[0]))
+                        } else {
+                            sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                        }
                     }
                 } else {
                     sender.sendMessage(EssentialsPro.getOnlyPlayer())
@@ -35,11 +46,22 @@ class WarpCommand: CommandExecutor {
                         if (p.isOnline) {
                             var loc: Location? = null
                             loc = EssentialsPro.getConfigManager().getLocation(args[1])
-                            if (loc != null) {
-                                p.teleport(loc)
-                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))
+                            if(EssentialsPro.getAsync()) {
+                                Bukkit.getScheduler().runTaskAsynchronously(EssentialsPro.getPlugin(), {
+                                    if (loc != null) {
+                                        p.teleport(loc)
+                                        sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))
+                                    } else {
+                                        sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                                    }
+                                })
                             } else {
-                                sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                                if (loc != null) {
+                                    p.teleport(loc)
+                                    sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Warped_Other").replace("%name%", p.displayName).replace("%point%", args[1]))
+                                } else {
+                                    sender.sendMessage(EssentialsPro.getConfigManager().getMessage("Unknown_Warp"))
+                                }
                             }
                         } else {
                             sender.sendMessage(EssentialsPro.getUnknownPlayer())

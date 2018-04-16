@@ -51,7 +51,8 @@ class ConfigManager {
     }
 
     fun getBoolean(key: String): Boolean {
-        return get(key) as Boolean
+        val str: String = getString(key)
+        return str == "true"
     }
 
     fun getMessage(messageID: String): String {
@@ -64,8 +65,13 @@ class ConfigManager {
     }
 
 
-    fun getLocation(name: String, category: String = "warps"): Location {
-        val loc = config!!.get("$category.$name") as Location
+    fun getLocation(name: String, category: String = "warps"): Location? {
+        var loc = Location(Bukkit.getServer().worlds[0], 0.0, 0.0, 0.0);
+        try {
+            loc = config!!.get("$category.$name") as Location
+        } catch(e: Exception) {
+            return null
+        }
         return loc
     }
 
